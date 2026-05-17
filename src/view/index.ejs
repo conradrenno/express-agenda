@@ -1,16 +1,45 @@
-<%- include('includes/head'); %>
+<%- include('includes/head') %>
+    <%- include('includes/nav') %>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 my-3">
+                    <h1 class="text-center">Agenda</h1>
+                    <p class="lead text-center">Seus contatos estão abaixo</p>
 
-    <section class="container">
-        <h1>Gerador de CPF</h1>
-        <div class="cpf-gerado"></div>
+                    <div class="row">
+                        <div class="col my-3">
+                            <div class="alert alert-danger">
+                                Nenhum contato encontrado.
+                            </div>
+                        </div>
+                    </div>
 
-        <form action="/" method="POST">
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-            <button type="submit">Enviar</button>
-        </form>
+                    <div class="responsive-table">
+                        <table class="table my-3">
+                            <tr>
+                                <td>Caio</td>
+                                <td>Miranda</td>
+                                <td>55988725564</td>
+                                <td>caio@miranda.com</td>
+                            </tr>
+                            <tr>
+                                <td>João</td>
+                                <td>Silva</td>
+                                <td>55988725564</td>
+                                <td>joao@silva.com</td>
+                            </tr>
+                            <tr>
+                                <td>Pedro</td>
+                                <td>Costa</td>
+                                <td>55988725564</td>
+                                <td>pedro@costa.com</td>
+                            </tr>
+                        </table>
+                    </div>
 
-    </section>
-
-    <%- include('includes/footer'); %>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+        <%- include('includes/footer') %>
