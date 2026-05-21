@@ -9,28 +9,34 @@
 
                     <%- include('includes/messages') %>
 
-                        <div class="responsive-table">
-                            <table class="table my-3">
-                                <tr>
-                                    <td>Caio</td>
-                                    <td>Miranda</td>
-                                    <td>55988725564</td>
-                                    <td>caio@miranda.com</td>
-                                </tr>
-                                <tr>
-                                    <td>João</td>
-                                    <td>Silva</td>
-                                    <td>55988725564</td>
-                                    <td>joao@silva.com</td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro</td>
-                                    <td>Costa</td>
-                                    <td>55988725564</td>
-                                    <td>pedro@costa.com</td>
-                                </tr>
-                            </table>
-                        </div>
+                        <% if (contatos.length> 0) { %>
+                            <div class="responsive-table">
+                                <table class="table my-3">
+                                    <% contatos.forEach(contato=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= contato.name %>
+                                            </td>
+                                            <td>
+                                                <%= contato.lastname %>
+                                            </td>
+                                            <td>
+                                                <%= contato.phone %>
+                                            </td>
+                                            <td>
+                                                <%= contato.email %>
+                                            </td>
+                                            <td><a href="/contato/index/<%= contato._id %>">Editar</a></td>
+                                            <td><a class="text-danger"
+                                                    href="/contato/delete/<%= contato._id %>">Excluir</a>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                </table>
+                            </div>
+                            <% } else { %>
+                                <p class="text-center">Nenhum contato registrado.</p>
+                                <% } %>
 
                 </div>
                 <div class="col-lg-2"></div>
